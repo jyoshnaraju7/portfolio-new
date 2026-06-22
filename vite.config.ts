@@ -12,8 +12,12 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  // Override Nitro preset based on deployment target
+  // Configure Nitro for Vercel deployment
   nitro: {
     presets: ["vercel"],
+    output: {
+      publicDir: ".vercel/output/static",
+      serverDir: ".vercel/output/functions",
+    },
   },
 });
